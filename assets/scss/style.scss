@@ -1,0 +1,17 @@
+@import "vars";
+
+//Blocks
+@import "blocks/sample.scss";
+@import "blocks/about_me";
+@import "blocks/intro";
+@import "blocks/footer";
+@import "blocks/modal_window";
+@import "blocks/sqlshow";
+
+//сбрасывает все стили
+@import "bootstrap/bootstrap-reboot";
+
+@import "bootstrap/bootstrap";
+
+
+
