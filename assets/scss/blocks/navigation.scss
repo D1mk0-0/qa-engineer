@@ -1,0 +1,11 @@
+@media (max-width: 576px) {
+    .certificatesLinkFull {
+        display: none !important;
+    }
+}
+
+@media (min-width: 576px) {
+    .certificatesLinkSmall {
+        display: none !important;
+    }
+}
