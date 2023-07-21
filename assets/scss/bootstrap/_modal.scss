@@ -155,6 +155,12 @@
   padding: 0;
 }
 
+@media (max-width: 576px) {
+  .modal-body {
+    min-height: 75vh;
+  }
+}
+
 // Footer (for actions)
 .modal-footer {
   display: flex;
