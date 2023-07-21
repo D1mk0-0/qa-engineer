@@ -1,6 +1,9 @@
 
-
-.card {
-    padding: 0 !important;
-    margin: 1rem .5rem !important;
-}
+ .card {
+     padding: 0 !important;
+     margin: .5rem !important;
+     img {
+        filter: brightness(90%);
+     }
+ }
+    

@@ -20,13 +20,14 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Дом</a>
+                            <a class="nav-link active" aria-current="page" href="#cases">Кейсы</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Кейсы</a>
+                            <a class="nav-link" href="#about">Обо мне</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Обо мне</a>
+                            <a class="nav-link" href="#" data-bs-toggle="modal"
+                            data-bs-target="#certificatesModalFull">Сертификаты</a>
                         </li>
                     </ul>
                 </div>
@@ -44,7 +45,8 @@
                         </div>
                         <div>
                             <h2>
-                                engineer
+                                <span class="txt-rotate" data-period="2000"
+                                    data-rotate='[ "инженер", "engineer" ]'></span>
                             </h2>
                         </div>
                         <div>
@@ -53,7 +55,7 @@
                             </h3>
                         </div>
 
-                        <div class="row flex-nowrap social_intro">
+                        <div class="row d-flex justify-content-center flex-nowrap social_intro">
                             <div class="col">
                                 <a href="https://t.me/DmitryVasyutin" target="_blank">
                                     <img class="img-fluid" src="items/logo/telegram.svg" alt="Телеграмм">
@@ -76,14 +78,15 @@
         </div>
 
         <div class="text-center bg-body-tertiary rounded mt-3">
-            <div class="row align-items-center justify-content-evenly">
+            <div class="row align-items-center justify-content-evenly" id="cases">
 
                 <!-- начало карты sql -->
                 <div class="card" style="width: 18rem;">
-                    <img src="items/card_img/card_img.jpg" class="card-img-top" alt="...">
+                    <img src="items/card_img/sql.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-start">SQL</h5>
-                        <p class="card-text text-start">SQL запросы на выборку и работа в "SQL Shell (psql)"</p>
+                        <p class="card-text text-start">Демонстрация SQL запросов на выборку и работы в "SQL Shell
+                            (psql)"</p>
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                             data-bs-target="#sqlModal">
                             Развернуть
@@ -91,9 +94,23 @@
                     </div>
                 </div>
 
+                <!-- начало карты Тест-кейс -->
+                <div class="card" style="width: 18rem;">
+                    <img src="items/card_img/checklist.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-start">Тест-кейс</h5>
+                        <p class="card-text text-start">Ручное тестирование SQL-демонстрации, что находится в карте
+                            слева</p>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                            data-bs-target="#testcaseModal">
+                            Развернуть
+                        </button>
+                    </div>
+                </div>
+
                 <!-- начало карты Чек-лист-->
                 <div class="card" style="width: 18rem;">
-                    <img src="items/card_img/card_img.jpg" class="card-img-top" alt="...">
+                    <img src="items/card_img/checklist.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-start">Чек-лист</h5>
                         <p class="card-text text-start">Some quick example text to build on the card title and make up
@@ -106,37 +123,31 @@
                     </div>
                 </div>
 
-                <!-- начало карты Тест-кейс -->
-                <div class="card" style="width: 18rem;">
-                    <img src="items/card_img/card_img.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title text-start">Тест-кейс</h5>
-                        <p class="card-text text-start">Some quick example text to build on the card title and make up
-                            the bulk of
-                            the card's content.</p>
-                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                            data-bs-target="#testcaseModal">
-                            Развернуть
-                        </button>
-                    </div>
-                </div>
-
             </div>
         </div>
 
         <div class="text-center bg-body-tertiary rounded mt-3">
-            <div class="row justify-content-evenly align-items-center text-wrap">
+            <div class="row justify-content-evenly align-items-center text-wrap" id="about">
                 <div class="col d-flex justify-content-center">
                     <div class="col-md-8 text-start">
                         <h4 class="text-start">Обо мне:</h4>
                         <p class="fw-light text-start">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente aspernatur qui cumque in
-                            repellendus expedita necessitatibus vitae accusantium enim veniam laudantium ipsam magnam
-                            blanditiis dolorem aliquam animi voluptatibus, atque ratione. Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Expedita ab, adipisci corporis nisi officiis dignissimos
-                            repudiandae consectetur tenetur consequuntur esse magnam inventore laboriosam iusto atque,
-                            sed
-                            ut cupiditate ipsa assumenda.
+                            Я начинающий специалист в области тестирования
+                            программного обеспечения. Имею понимание методологий
+                            и процессов разработки. Обладаю навыками составления
+                            тест-кейсов и чек-листов, анализа дефектов, автоматизации тестирования и работы
+                            с базами данных.
+                        </p>
+                        <p class="fw-light text-start">
+                            Понимаю основы программирования на языках JavaScript и Python
+                            что позволяет мне эффективно работать с различными системами управления
+                            версиями, такими как GitHub. Также я имею опыт работы с 1С и умею
+                            выполнять SQL запросы.
+                        </p>
+                        <p class="fw-light text-start">
+                            Я коммуникабельный и отзывчивый член команды, при некоторой помощи способный эффективно
+                            работать как самостоятельно, так и в группе. Я стремлюсь к постоянному
+                            развитию и готов учиться новым технологиям и методикам тестирования.
                         </p>
                     </div>
                 </div>
@@ -146,33 +157,38 @@
                             <h4 class="text-start">Навыки:</h4>
                         </div>
                         <div class="aboutItems">
-                            <p class="fw-light text-start">HTML | CSS | JS</p>
-                            <p class="fw-light text-start">Препроцессоры LESS, SASS. Фреймворки</p>
+                            <p class="fw-light text-start">HTML | CSS</p>
+                            <p class="fw-light text-start">
+                                Понимание и знание основ языков разметки HTML и CSS.
+                                Верстка и редактирование страниц с использованием
+                                препроцессоров SASS и LESS.</p>
                         </div>
                         <div class="aboutItems">
-                            <p class="fw-light text-start">React | Redux</p>
-                            <p class="fw-light text-start">Разметка JSX, модули</p>
+                            <p class="fw-light text-start">JS | Python</p>
+                            <p class="fw-light text-start">Знание базовых принципов языков программирования.</p>
                         </div>
                         <div class="aboutItems">
-                            <p class="fw-light text-start"> | </p>
-                            <p class="fw-light text-start">Light weight text.</p>
+                            <p class="fw-light text-start">SQL</p>
+                            <p class="fw-light text-start">Навыки работы с базами данных и SQL запросами.</p>
                         </div>
                         <div class="aboutItems">
-                            <p class="fw-light text-start">HTML | CSS | JS</p>
-                            <p class="fw-light text-start">Light weight text.</p>
-                        </div>
-                        <div class="aboutItems">
-                            <p class="fw-light text-start">HTML | CSS | JS</p>
-                            <p class="fw-light text-start">Light weight text.</p>
+                            <p class="fw-light text-start">Github</p>
+                            <p class="fw-light text-start">Создание, редактирование репозиториев.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="row flex-nowrap justify-content-center certificates">
+                <div class="row flex-nowrap justify-content-center certificates m-2">
                     <div class="col">
                         <button type="button" class="buttonNonDec" data-bs-toggle="modal"
                             data-bs-target="#certificatesModalFull">
                             <img class="img-fluid" src="items/certificates/Google_Сертификат_page-0001.png" alt="">
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="buttonNonDec" data-bs-toggle="modal"
+                            data-bs-target="#certificatesModalFull">
+                            <img class="img-fluid" src="items/certificates/testing_netology_page-0001 (1).jpg" alt="">
                         </button>
                     </div>
                     <div class="col">
@@ -243,7 +259,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Тест-кейс</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">SQL</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -254,7 +270,40 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-success" id="test-typing" value="Test Typing Effect">Начать</button>
+                    <div class="col m-0">
+                        <div class="btn-group" role="group" aria-label="Basic example" data-bs-toggle="tooltip"
+                            data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Выберите команду для начала демонстрации:">
+                            <button type="button" class="btn btn-success" id="test-create"
+                                value="Test Typing Effect">CREATE</button>
+                            <button type="button" class="btn btn-success" id="test-insert"
+                                value="Test Typing Effect">INSERT</button>
+                            <button type="button" class="btn btn-success" id="test-select"
+                                value="Test Typing Effect">SELECT</button>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-end m-0">
+                        <button type="button" class="btn btn-secondary d-none d-sm-block"
+                            data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно Тест-кейс -->
+    <div class="modal modal-lg" id="testcaseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Тест-кейс</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0FBwAaO0wUlmGSHZoI2xAEIH4UEZPKCFjGqAJsC59Sk04nXf5W_xn-NCc-0YKM5o_O1YkBoQw4pPH/pubhtml?widget=true&amp;headers=false"></iframe>
+                </div>
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
                 </div>
             </div>
@@ -272,25 +321,6 @@
                 <div class="modal-body">
                     <iframe class="img-fluid"
                         src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR6mwaSRQkVFIm0YeO_1ZXxhvSzQZprhbibRzYZpO2IePlg8HGj5fmadATlKA0Dvx4zvVYY9VpoOMnQ/pubhtml?widget=true&amp;headers=false"></iframe>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Модальное окно Тест-кейс -->
-    <div class="modal fade" id="testcaseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Тест-кейс</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <iframe
-                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTpJF9Bv-38QmS0kv6O_x-dj-gll12d_RttJ7mHDB1ne4Ei3NFAWqj8lnQ-RzJZ0TB0v1AIKBlYH3LF/pubhtml?widget=true&amp;headers=false"></iframe>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
@@ -339,6 +369,10 @@
                                     alt="...">
                             </div>
                             <div class="carousel-item" data-bs-interval="2000">
+                                <img src="items/certificates/testing_netology_page-0001 (1).jpg" class="d-block w-100"
+                                    alt="...">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="2000">
                                 <img src="items/certificates/Сертификат_Python_14.04.22_page-0001.jpg"
                                     class="d-block w-100" alt="...">
                             </div>
@@ -376,8 +410,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-        <script src="assets/js/sqlshow.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="assets/js/intro.js"></script>
+    <script src="assets/js/sqlshow.js"></script>
+    <script src="assets/js/tooltip.js"></script>
 </body>
 
 </html>
