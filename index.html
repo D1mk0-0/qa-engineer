@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/style.min.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <title>Junior QA-engineer</title>
 </head>
 
@@ -27,11 +27,11 @@
                         </li>
                         <li class="nav-item certificatesLinkFull">
                             <a class="nav-link" href="#" data-bs-toggle="modal"
-                            data-bs-target="#certificatesModalFull">Сертификаты</a>
+                                data-bs-target="#certificatesModalFull">Сертификаты</a>
                         </li>
                         <li class="nav-item certificatesLinkSmall">
                             <a class="nav-link" href="#" data-bs-toggle="modal"
-                            data-bs-target="#certificatesModalSmall">Сертификаты</a>
+                                data-bs-target="#certificatesModalSmall">Сертификаты</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -133,6 +133,19 @@
                             the card's content.</p>
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                             data-bs-target="#checklistModal">
+                            Развернуть
+                        </button>
+                    </div>
+                </div>
+
+                <!-- начало карты Интелект карта -->
+                <div class="card" style="width: 18rem;">
+                    <img src="items/card_img/checklist.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-start">Интелект-карта</h5>
+                        <p class="card-text text-start">Интелект карта xmind</p>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                            data-bs-target="#incardModal">
                             Развернуть
                         </button>
                     </div>
@@ -336,6 +349,25 @@
                 <div class="modal-body">
                     <iframe class="img-fluid"
                         src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR6mwaSRQkVFIm0YeO_1ZXxhvSzQZprhbibRzYZpO2IePlg8HGj5fmadATlKA0Dvx4zvVYY9VpoOMnQ/pubhtml?widget=true&amp;headers=false"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно Карта -->
+    <div class="modal modal-lg" id="incardModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Чек-лист</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe src='https://www.xmind.app/embed/undefined/' frameborder='0' scrolling='no' allowfullscreen="true">
+                    </iframe>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
