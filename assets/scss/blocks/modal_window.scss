@@ -2,3 +2,9 @@ iframe {
     min-height: inherit;
     min-width: 100%;
 };
+
+.nonvh {
+    .modal-body {
+        min-height: 100% !important;
+    }
+}

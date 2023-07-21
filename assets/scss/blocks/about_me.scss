@@ -34,7 +34,7 @@
     color: inherit;
     background-color: transparent;
     cursor: pointer;
-  }
+}
 
 .certificates {
     img {
@@ -49,8 +49,6 @@
     }
 }
 
-;
-
 .certificatesButton {
     margin: .5rem 0;
 }
@@ -61,4 +59,19 @@
     }
 }
 
-;
+@media (min-width: 992px) {
+
+    .left,
+    .right {
+        margin: 2rem;
+        min-width: 360px;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .left,
+    .right {
+        margin: 1rem;
+    }
+}
