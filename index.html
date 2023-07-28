@@ -36,7 +36,8 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#cases">Резюме</a>
+                            <a class="nav-link" href="https://hh.ru/applicant/resumes/view?resume=a8b9c8e8ff0c38c99a0039ed1f4c476b4f4879"
+                            target="_blank">HeadHunter</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://github.com/D1mk0-0" target="_blank">GitHub</a>
@@ -123,12 +124,28 @@
                     </div>
                 </div>
 
+                <!-- начало карты Se&java -->
+                <div class="card" style="width: 18rem;">
+                    <img src="items/card_img/selenium_java.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-start">Автотест</h5>
+                        <p class="card-text text-start">Маленькая сборка теста на Java использующая Selenium, Xpath
+                            для получения значения с Avito.
+                        </p>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                            data-bs-target="#autotestSeJavaModal">
+                            Развернуть
+                        </button>
+                    </div>
+                </div>
+
                 <!-- начало карты Тест-план -->
                 <div class="card" style="width: 18rem;">
-                    <img src="items/card_img/google_docs.jpg"class="card-img-top" alt="...">
+                    <img src="items/card_img/google_docs.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-start">Тест-план</h5>
-                        <p class="card-text text-start">План тестирования, составленный для тестирования моего сайта-портфолио</p>
+                        <p class="card-text text-start">План тестирования, составленный для тестирования моего
+                            сайта-портфолио</p>
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                             data-bs-target="#testcaseModal">
                             Развернуть
@@ -180,7 +197,7 @@
                             с базами данных.
                         </p>
                         <p class="fw-light text-start">
-                            Понимаю основы программирования на языках JavaScript и Python
+                            Понимаю основы программирования на языках Java, JavaScript и Python
                             что позволяет мне эффективно работать с различными системами управления
                             версиями, такими как GitHub. Также я имею опыт работы с 1С и умею
                             выполнять SQL запросы.
@@ -205,12 +222,17 @@
                                 препроцессоров SASS и LESS.</p>
                         </div>
                         <div class="aboutItems">
-                            <p class="fw-light text-start">JS | Python</p>
+                            <p class="fw-light text-start">Java | JS | Python</p>
                             <p class="fw-light text-start">Знание базовых принципов языков программирования.</p>
                         </div>
                         <div class="aboutItems">
                             <p class="fw-light text-start">SQL</p>
                             <p class="fw-light text-start">Навыки работы с базами данных и SQL запросами.</p>
+                        </div>
+                        <div class="aboutItems">
+                            <p class="fw-light text-start">Chrome | DevTools</p>
+                            <p class="fw-light text-start">Поиск необходимых элементов XML с помощью XPath или
+                                CSS-селекторов.</p>
                         </div>
                         <div class="aboutItems">
                             <p class="fw-light text-start">Github</p>
@@ -351,6 +373,45 @@
         </div>
     </div>
 
+    <!-- Модальное окно Se&Java -->
+    <div class="modal modal-lg" id="autotestSeJavaModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Автотест</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <pre><code>
+                        public class Main {
+                            public static void main(String[] args) {
+                                System.setProperty("webdriver.chrome.driver", "C:\\Chromedriver\\chromedriver.exe");
+                                WebDriver driver = new ChromeDriver();
+                        
+                                //Неявное ожидание
+                                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                        
+                                driver.get("https://www.avito.ru/all/transport");
+                        
+                                WebElement element = driver.findElement(By.xpath("(//a[text()='Mercedes-Benz']/following-sibling::span)[1]"));
+                        
+                                String par = element.getText();
+                        
+                                System.out.println(par);
+                        
+                            }
+                        }
+                        </code></pre>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Открыть на GitHub</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Модальное окно Чек-лист -->
     <div class="modal fade" id="checklistModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -379,7 +440,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <iframe src='https://www.xmind.app/embed/rWEZTT' frameborder='0' scrolling='no' allowfullscreen="true">
+                    <iframe src='https://www.xmind.app/embed/rWEZTT' frameborder='0' scrolling='no'
+                        allowfullscreen="true">
                     </iframe>
                 </div>
                 <div class="modal-footer">
