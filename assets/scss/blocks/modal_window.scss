@@ -11,9 +11,13 @@ iframe {
 
 .leftSeModal {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     padding: auto;
+
+    video {
+        margin-top: 1rem;
+    }
 }
 
 .modal-body > .row{
