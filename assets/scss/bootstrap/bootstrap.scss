@@ -1,5 +1,5 @@
-@import "mixins/banner";
-@include bsBanner("");
+//@import "mixins/banner";
+//@include bsBanner("");
 
 
 // scss-docs-start import-stack
@@ -18,7 +18,7 @@
 @import "images";
 @import "containers";
 @import "grid";
-@import "tables";
+//@import "tables";
 @import "forms";
 @import "buttons";
 @import "transitions";
@@ -27,8 +27,8 @@
 @import "nav";
 @import "navbar";
 @import "card";
-@import "accordion";
-@import "breadcrumb";
+//@import "accordion";
+//@import "breadcrumb";
 @import "pagination";
 @import "badge";
 @import "alert";
@@ -40,9 +40,9 @@
 @import "tooltip";
 @import "popover";
 @import "carousel";
-@import "spinners";
+//@import "spinners";
 @import "offcanvas";
-@import "placeholders";
+//@import "placeholders";
 
 // Helpers
 @import "helpers";

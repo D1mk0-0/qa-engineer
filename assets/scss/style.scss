@@ -1,5 +1,10 @@
 @import "vars";
 
+//сбрасывает все стили
+@import "bootstrap/bootstrap-reboot";
+
+@import "bootstrap/bootstrap";
+
 //Blocks
 @import "blocks/sample";
 @import "blocks/navigation";
@@ -9,10 +14,7 @@
 @import "blocks/modal_window";
 @import "blocks/sqlshow";
 
-//сбрасывает все стили
-@import "bootstrap/bootstrap-reboot";
 
-@import "bootstrap/bootstrap";
 
 
 
