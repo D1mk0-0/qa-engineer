@@ -21,7 +21,7 @@
 };
 
 //Анимация 
-.introAnimation > h2 {
+.introAnimation > h3 {
     border-right: solid 6px #aaa;
     white-space: nowrap;
     overflow: hidden;
@@ -31,7 +31,7 @@
   }
   
   /* Animation */
-  .introAnimation > h2 {
+  .introAnimation > h3 {
     animation: animated-text 2s steps(29,end) 1s 1 normal both,
                animated-cursor 600ms steps(29,end) infinite;
   }
