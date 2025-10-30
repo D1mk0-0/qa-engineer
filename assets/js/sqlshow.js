@@ -1,91 +1,152 @@
-var captionLength = 0;
+class SQLTerminal {
+    constructor() {
+        this.captionLength = 0;
+        this.caption = '';
+        this.ready = '';
+        this.isTyping = false;
+        this.currentCommand = '';
 
-var caption = '';
+        this.commands = {
+            create: `CREATE TABLE employee (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    gender VARCHAR(6) NOT NULL,
+    email VARCHAR(150),
+    date_of_birth DATE NOT NULL,
+    country_of_birth VARCHAR(50) NOT NULL
+);`,
 
-var ready = '';
+            insert: `INSERT INTO employee (
+    first_name,
+    last_name,
+    gender,
+    email,
+    date_of_birth,
+    country_of_birth
+)
+VALUES ('John', 'Doe', 'MALE', 'jd@mail.com', '2000-01-01', 'United Kingdom');`,
 
-var create = "CREATE TABLE employee (\
-    <br \/> id BIGSERIAL NOT NULL PRIMARY KEY,\
-    <br \/> first_name VARCHAR(50) NOT NULL,\
-    <br \/> last_name VARCHAR(50) NOT NULL,\
-    <br \/> gender VARCHAR(6) NOT NULL,\
-    <br \/> email VARCHAR(150),\
-    <br \/> date_of_birth DATE NOT NULL,\
-    <br \/> country_of_birth VARCHAR (50) NOT NULL\
-    <br \/>)\;";
+            select: `SELECT country_of_birth, COUNT(*) as employee_count
+FROM employee 
+GROUP BY country_of_birth
+HAVING COUNT(*) > 10
+ORDER BY country_of_birth DESC;`
+        };
 
-var insert = "INSERT INTO employee (\
-    <br \/> first_name,\
-    <br \/> last_name,\
-    <br \/> gender,\
-    <br \/> email,\
-    <br \/> date_of_birth,\
-    <br \/> country_of_birth\
-    <br \/> )\
-    <br \/> VALUES ('John', 'Doe', 'MALE', 'jd@mail.com', '2000-01-01', 'United Kingdom');";
+        this.init();
+    }
 
-var select = "SELECT country_of_birth, COUNT(*) > 10\
-    <br \/> FROM employee GROUP BY country_of_birth\
-    <br \/> HAVING COUNT(*) > 10\
-    <br \/> ORDER BY country_of_birth DESC;";
+    init() {
+        this.setupEventListeners();
+        this.startCursorAnimation();
+    }
 
-$(document).ready(function() {
-    setInterval ('cursorAnimation()', 600);
-    captionEl = $('#caption');
+    setupEventListeners() {
+        $('#test-create').on('click', () => this.executeCommand('create'));
+        $('#test-insert').on('click', () => this.executeCommand('insert'));
+        $('#test-select').on('click', () => this.executeCommand('select'));
+    }
 
-    $('#test-create').click(function(){
-        captionLength = 0;
-        ready = create;
-        testTypingEffect();
-    });
+    executeCommand(commandType) {
+        if (this.isTyping) return;
 
-    $('#test-insert').click(function(){
-        captionLength = 0;
-        ready = insert;
-        testTypingEffect();
-    });
+        this.resetButtons();
+        $(`#test-${commandType}`).addClass('active');
 
-    $('#test-select').click(function(){
-        captionLength = 0;
-        ready = select;
-        testTypingEffect();
-    });
+        this.captionLength = 0;
+        this.caption = '';
+        this.ready = this.commands[commandType];
+        this.currentCommand = commandType;
 
-    
+        this.clearTerminal();
+        this.typeEffect();
+    }
 
-});
+    resetButtons() {
+        $('.btn-group .btn').removeClass('active');
+    }
 
-function testTypingEffect() {
-    captionEl.html(caption.substr(0, captionLength--));
-    if(captionLength >= 0) {
-        erase();
-    } else {
-        caption = ready;
-        type();
+    clearTerminal() {
+        $('#caption').html('');
+        $('#sql-output').remove();
+    }
+
+    typeEffect() {
+        this.isTyping = true;
+        this.captionEl = $('#caption');
+
+        // Добавляем промпт
+        const prompt = `<span class="prompt">postgres=#</span> `;
+        this.captionEl.html(prompt);
+
+        // Запускаем печать команды
+        this.type();
+    }
+
+    type() {
+        const currentText = this.ready.substr(0, this.captionLength);
+        const formattedText = this.formatSQL(currentText);
+
+        this.captionEl.html(`<span class="prompt">postgres=#</span> ${formattedText}<span class="cursor">|</span>`);
+
+        if (this.captionLength < this.ready.length) {
+            this.captionLength++;
+            setTimeout(() => this.type(), this.getTypingSpeed());
+        } else {
+            this.showOutput();
+        }
+    }
+
+    formatSQL(sql) {
+        return sql
+            .replace(/(CREATE|TABLE|NOT NULL|PRIMARY KEY|INSERT INTO|VALUES|SELECT|FROM|GROUP BY|HAVING|ORDER BY|DESC)/g, '<span class="keyword">$1</span>')
+            .replace(/(VARCHAR|BIGSERIAL|DATE)/g, '<span class="type">$1</span>')
+            .replace(/'([^']*)'/g, '<span class="string">\'$1\'</span>')
+            .replace(/(\d+)/g, '<span class="number">$1</span>')
+            .replace(/\n/g, '<br>')
+            .replace(/    /g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+    }
+
+    getTypingSpeed() {
+        // Случайная скорость для более естественного эффекта
+        return Math.random() * 50 + 30;
+    }
+
+    showOutput() {
+        setTimeout(() => {
+            const output = this.generateOutput();
+            this.captionEl.after(`<div id="sql-output" class="sql-output">${output}</div>`);
+            this.isTyping = false;
+
+            // Прокрутка к низу
+            this.scrollToBottom();
+        }, 500);
+    }
+
+    generateOutput() {
+        const outputs = {
+            create: `<span class="comment">-- Table created successfully</span><br>CREATE TABLE`,
+            insert: `<span class="comment">-- 1 row inserted</span><br>INSERT 0 1`,
+            select: `<span class="comment">-- Query returned 3 rows</span><br> country_of_birth | employee_count<br>------------------+---------------<br> USA              | 15<br> Germany          | 12<br> UK               | 11`
+        };
+
+        return outputs[this.currentCommand] || '<span class="comment">-- Command executed successfully</span>';
+    }
+
+    scrollToBottom() {
+        const terminal = $('.sqlbody')[0];
+        terminal.scrollTop = terminal.scrollHeight;
+    }
+
+    startCursorAnimation() {
+        setInterval(() => {
+            $('.cursor').animate({ opacity: 0 }, 'fast').animate({ opacity: 1 }, 'fast');
+        }, 500);
     }
 }
 
-function type() {
-    captionEl.html(caption.substr(0, captionLength++));
-    if(captionLength < caption.length+1) {
-        setTimeout('type()', 50);
-    };
-}
-
-function erase() {
-    captionEl.html(caption.substr(0, captionLength--));
-    if(captionLength >= 0) {
-        setTimeout('erase()', 5);
-    } else {
-        captionLength = 0;
-        caption = '';
-    } 
-}
-
-function cursorAnimation() {
-    $('#cursor').animate({
-        opacity: 0
-    }, 'fast', 'swing').animate({
-        opacity: 1
-    }, 'fast', 'swing');
-}
+// Инициализация при загрузке документа
+$(document).ready(() => {
+    new SQLTerminal();
+});

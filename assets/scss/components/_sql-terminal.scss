@@ -1,0 +1,146 @@
+.sql-terminal {
+  background: #1a1a1a;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: 1.5rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  color: #00ff00;
+  min-height: 300px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, $accent-primary, $accent-secondary);
+  }
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $border-color;
+
+  .terminal-dots {
+    display: flex;
+    gap: 0.25rem;
+
+    span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+
+      &:nth-child(1) { background: #ff5f57; }
+      &:nth-child(2) { background: #ffbd2e; }
+      &:nth-child(3) { background: #28ca42; }
+    }
+  }
+
+  .terminal-title {
+    color: $text-secondary;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+  }
+}
+
+.terminal-content {
+  .command-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    .prompt {
+      color: $accent-primary;
+      font-weight: bold;
+    }
+
+    .command {
+      color: #00ff00;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1.2em;
+      background: #00ff00;
+      animation: blink 1s infinite;
+      margin-left: 2px;
+    }
+  }
+
+  .sql-output {
+    color: #87ceeb;
+    line-height: 1.4;
+
+    .keyword {
+      color: #ff79c6;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #f1fa8c;
+    }
+
+    .number {
+      color: #bd93f9;
+    }
+
+    .comment {
+      color: #6272a4;
+    }
+  }
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  .btn {
+    background: $bg-elevated;
+    border: 1px solid $border-color;
+    color: $text-secondary;
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      background: $accent-primary;
+      border-color: $accent-primary;
+      color: $text-primary;
+    }
+
+    &.active {
+      background: $accent-primary;
+      border-color: $accent-primary;
+      color: $text-primary;
+    }
+  }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+// Адаптивность терминала
+@media (max-width: 576px) {
+  .sql-terminal {
+    padding: 1rem;
+    min-height: 250px;
+  }
+
+  .terminal-controls {
+    .btn {
+      flex: 1;
+      min-width: 80px;
+    }
+  }
+}

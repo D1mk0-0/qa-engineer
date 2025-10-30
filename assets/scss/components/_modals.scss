@@ -1,0 +1,121 @@
+.modal-content {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-lg;
+
+  .modal-header {
+    border-bottom: 1px solid $border-color;
+    padding: 1.5rem;
+
+    .modal-title {
+      font-weight: $font-weight-semibold;
+      color: $text-primary;
+    }
+
+    .btn-close {
+      filter: invert(1) brightness(2);
+      opacity: 0.7;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+    color: $text-secondary;
+
+    iframe {
+      border-radius: $border-radius;
+      border: 1px solid $border-color;
+    }
+  }
+
+  .modal-footer {
+    border-top: 1px solid $border-color;
+    padding: 1.5rem;
+  }
+}
+
+.modal-video-container {
+  video {
+    border-radius: $border-radius;
+    border: 1px solid $border-color;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+}
+
+.modal-description {
+  h2 {
+    font-size: 1.25rem;
+    color: $text-primary;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  a {
+    color: $accent-primary;
+    text-decoration: none;
+
+    &:hover {
+      color: $accent-hover;
+      text-decoration: underline;
+    }
+  }
+
+  hr {
+    border-color: $border-color;
+    margin: 1.5rem 0;
+  }
+}
+
+// Карусель сертификатов
+.carousel {
+  .carousel-item {
+    img {
+      border-radius: $border-radius;
+      max-height: 500px;
+      object-fit: contain;
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: rgba($bg-primary, 0.7);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 1rem;
+
+    &:hover {
+      background: $accent-primary;
+    }
+  }
+}
+
+// Адаптивность модальных окон
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 1rem;
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      padding: 1rem;
+    }
+  }
+
+  .modal-video-container {
+    margin-bottom: 1rem;
+  }
+}

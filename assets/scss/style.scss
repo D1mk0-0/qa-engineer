@@ -1,20 +1,22 @@
 @import "vars";
 
-//Blocks
-@import "blocks/sample";
-@import "blocks/navigation";
-@import "blocks/about_me";
-@import "blocks/intro";
-@import "blocks/footer";
-@import "blocks/modal_window";
-@import "blocks/sqlshow";
+// Базовые стили
+@import "base/reset";
+@import "base/typography";
+@import "base/layout";
 
-//сбрасывает все стили
-@import "bootstrap/bootstrap-reboot";
+// Компоненты
+@import "components/navigation";
+@import "components/hero";
+@import "components/cards";
+@import "components/about";
+@import "components/footer";
+@import "components/modals";
+@import "components/projects";
+@import "components/sql-terminal";
 
+// Утилиты
+@import "utilities/animations";
+
+// Bootstrap
 @import "bootstrap/bootstrap";
-
-
-
-
-

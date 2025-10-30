@@ -1,0 +1,64 @@
+.navbar {
+  background: linear-gradient(135deg, $bg-secondary, $bg-elevated) !important;
+  border-bottom: 1px solid $border-color;
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+
+  .navbar-nav {
+    .nav-link {
+      color: $text-secondary;
+      font-weight: $font-weight-medium;
+      padding: 0.5rem 1rem;
+      border-radius: $border-radius-sm;
+      transition: $transition;
+      position: relative;
+
+      &:hover, &.active {
+        color: $text-primary;
+        background: rgba($accent-primary, 0.1);
+
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: $accent-primary;
+        transition: $transition;
+      }
+    }
+  }
+
+  .navbar-toggler {
+    border: 1px solid $border-color;
+    padding: 0.25rem 0.5rem;
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($accent-primary, 0.25);
+    }
+  }
+}
+
+// Адаптивность навигации
+@media (max-width: 576px) {
+  .certificatesLinkFull {
+    display: none;
+  }
+
+  .navbar-collapse {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .certificatesLinkSmall {
+    display: none;
+  }
+}

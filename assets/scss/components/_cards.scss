@@ -1,0 +1,77 @@
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+.card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  transition: $transition;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+    border-color: $accent-primary;
+  }
+
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    filter: grayscale(30%);
+    transition: $transition;
+  }
+
+  &:hover .card-img-top {
+    filter: grayscale(0%);
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-text {
+    color: $text-secondary;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    background: linear-gradient(135deg, $accent-primary, $accent-hover);
+    border: none;
+    border-radius: $border-radius-sm;
+    padding: 0.75rem 1.5rem;
+    font-weight: $font-weight-medium;
+    transition: $transition;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: $shadow-md;
+    }
+  }
+}
+
+// Адаптивность карточек
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card {
+    .card-body {
+      padding: 1.25rem;
+    }
+  }
+}
