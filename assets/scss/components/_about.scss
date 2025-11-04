@@ -12,18 +12,18 @@
   position: relative;
   overflow: hidden;
   margin: 0 -6rem;
-  
+
   &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-          radial-gradient(circle at 10% 20%, rgba($accent-primary, 0.08) 0%, transparent 50%),
-          radial-gradient(circle at 90% 80%, rgba($accent-secondary, 0.05) 0%, transparent 50%);
-      pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(circle at 10% 20%, rgba($accent-primary, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba($accent-secondary, 0.05) 0%, transparent 50%);
+    pointer-events: none;
   }
 }
 
@@ -32,7 +32,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
-  margin: 3rem;
+  margin: 3rem 0;
 }
 
 .about-main {
@@ -45,20 +45,20 @@
     border-radius: $border-radius;
     padding: 0.75rem 1.5rem;
     margin-bottom: 2rem;
-    
+
     .experience-years {
       font-size: 1.5rem;
       font-weight: $font-weight-bold;
       color: $accent-primary;
     }
-    
+
     .experience-text {
       color: $text-secondary;
       font-size: 0.9rem;
       font-weight: $font-weight-medium;
     }
   }
-  
+
   .about-text {
     .lead {
       font-size: 1.25rem;
@@ -67,7 +67,7 @@
       line-height: 1.6;
       margin-bottom: 2rem;
     }
-    
+
     p {
       color: $text-secondary;
       line-height: 1.6;
@@ -92,12 +92,12 @@
   border: 1px solid $border-color;
   border-radius: $border-radius;
   transition: $transition;
-  
+
   &:hover {
     border-color: $accent-primary;
     transform: translateX(5px);
   }
-  
+
   .highlight-icon {
     font-size: 1.5rem;
     width: 40px;
@@ -109,17 +109,17 @@
     border-radius: $border-radius;
     flex-shrink: 0;
   }
-  
+
   .highlight-content {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    
+
     strong {
       color: $text-primary;
       font-weight: $font-weight-semibold;
     }
-    
+
     span {
       color: $text-secondary;
       font-size: 0.9rem;
@@ -169,12 +169,12 @@
   font-weight: $font-weight-medium;
   border: 1px solid rgba($accent-primary, 0.2);
   transition: $transition;
-  
+
   &:hover {
     background: rgba($accent-primary, 0.2);
     transform: translateY(-1px);
   }
-  
+
   &.primary {
     background: linear-gradient(135deg, $accent-primary, $accent-secondary);
     color: $text-primary;
@@ -186,7 +186,7 @@
   margin-top: 4rem;
   padding-top: 3rem;
   border-top: 1px solid $border-color;
-  
+
   .certificates-title {
     font-size: 1.5rem;
     font-weight: $font-weight-semibold;
@@ -196,152 +196,13 @@
   }
 }
 
-.certificates-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-
-  .certificate-item {
-    background: $bg-card;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
-    padding: 0.75rem;
-    transition: $transition;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba($accent-primary, 0.1), transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    &:hover {
-      border-color: $accent-primary;
-      transform: translateY(-5px);
-      box-shadow: $shadow-md;
-      
-      &::before {
-        opacity: 1;
-      }
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: $border-radius-sm;
-      position: relative;
-      z-index: 1;
-    }
-  }
-}
-
-.certificates-button {
-  display: none;
-}
-
-// Адаптивность
-@media (max-width: 1200px) {
-  .about-background {
-    margin: 0 -2rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  
-  .about-highlights {
-    flex-direction: row;
-    flex-wrap: wrap;
-    
-    .highlight-item {
-      flex: 1;
-      min-width: 200px;
-    }
-  }
-  
-  .certificates-grid {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .about-background {
-    padding: 3rem 1.5rem;
-    margin: 0 -1rem;
-  }
-  
-  .about-highlights {
-    flex-direction: column;
-    
-    .highlight-item {
-      min-width: auto;
-    }
-  }
-  
-  .skills-tags {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 576px) {
-  .about-background {
-    padding: 2rem 1rem;
-  }
-  
-  .experience-badge {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.5rem !important;
-  }
-  
-  .certificates-grid {
-    display: none;
-  }
-  
-  .certificates-button {
-    display: block;
-    text-align: center;
-    margin-top: 2rem;
-
-    .btn {
-      background: linear-gradient(135deg, $accent-primary, $accent-hover);
-      border: none;
-      padding: 1rem 2rem;
-      font-weight: $font-weight-medium;
-    }
-  }
-}
-
-
-.certificates-section {
-  margin-top: 4rem;
-  padding-top: 3rem;
-  border-top: 1px solid $border-color;
-  
-  .certificates-title {
-    font-size: 1.5rem;
-    font-weight: $font-weight-semibold;
-    color: $text-primary;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-}
-
+// Карусель сертификатов - ПОКАЗЫВАЕТСЯ НА ДЕСКТОПЕ
 .certificates-carousel-container {
   position: relative;
   margin: 2rem 0;
+  
+  // Показываем карусель только на больших экранах
+  display: block;
 }
 
 .certificates-carousel {
@@ -358,7 +219,7 @@
   gap: 1.5rem;
   animation: scrollCarousel 40s linear infinite;
   padding: 0 2rem;
-  
+
   &:hover {
     animation-play-state: paused;
   }
@@ -369,7 +230,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 9)); // 9 слайдов * ширина слайда
+    transform: translateX(calc(-250px * 9));
   }
 }
 
@@ -383,17 +244,17 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  
+
   &:hover {
     border-color: $accent-primary;
     transform: translateY(-5px) scale(1.05);
     box-shadow: $shadow-lg;
-    
+
     .slide-overlay {
       opacity: 1;
       transform: translateY(0);
     }
-    
+
     img {
       transform: scale(1.1);
     }
@@ -404,7 +265,7 @@
   position: relative;
   overflow: hidden;
   border-radius: $border-radius-sm;
-  
+
   img {
     width: 100%;
     height: 160px;
@@ -424,7 +285,7 @@
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.3s ease;
-  
+
   .slide-title {
     color: $text-primary;
     font-weight: $font-weight-semibold;
@@ -434,6 +295,7 @@
   }
 }
 
+// Элементы управления каруселью
 .carousel-progress {
   display: flex;
   align-items: center;
@@ -496,80 +358,161 @@
   color: $accent-primary;
   transition: all 0.3s ease;
   cursor: pointer;
-  
+
   &:hover {
     background: $accent-primary;
     color: $text-primary;
     transform: scale(1.1);
   }
-  
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    
-    &:hover {
-      background: rgba($accent-primary, 0.1);
-      color: $accent-primary;
-      transform: none;
-    }
-  }
-  
+
   svg {
     width: 20px;
     height: 20px;
   }
 }
 
-// Адаптивность
-@media (max-width: 768px) {
-  .certificates-carousel {
-    padding: 1.5rem 0;
-  }
-  
-  .carousel-track {
-    gap: 1rem;
-    padding: 0 1rem;
-    animation-duration: 35s;
-  }
-  
-  .certificate-slide {
-    flex: 0 0 200px;
-    
-    .slide-content img {
-      height: 140px;
+// СЕТКА сертификатов - АЛЬТЕРНАТИВА ДЛЯ МЕДИА-ЗАПРОСОВ
+.certificates-grid {
+  display: none; // По умолчанию скрываем сетку
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+
+  .certificate-item {
+    background: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    padding: 0.75rem;
+    transition: $transition;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba($accent-primary, 0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      border-color: $accent-primary;
+      transform: translateY(-5px);
+      box-shadow: $shadow-md;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: $border-radius-sm;
+      position: relative;
+      z-index: 1;
     }
   }
+}
+
+.certificates-button {
+  display: none;
+  text-align: center;
+  margin-top: 2rem;
+
+  .btn {
+    background: linear-gradient(135deg, $accent-primary, $accent-hover);
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// Адаптивность
+@media (max-width: 1200px) {
+  .about-background {
+    margin: 0 -2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-highlights {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .highlight-item {
+      flex: 1;
+      min-width: 200px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .about-background {
+    padding: 2rem 1rem;
+    margin: 0 -0.5rem;
+  }
+
+  .about-highlights {
+    flex-direction: column;
+
+    .highlight-item {
+      min-width: auto;
+    }
+  }
+
+  .skills-tags {
+    justify-content: center;
+  }
+
+  // .certificates-carousel-container {
+  //   display: none;
+  // }
   
-  .carousel-progress,
-  .carousel-controls {
-    padding: 0 1rem;
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   }
   
-  .progress-bar {
-    animation-duration: 35s;
+  .certificates-button {
+    display: none;
   }
 }
 
 @media (max-width: 576px) {
-  .certificates-carousel-container {
-    display: none;
+  .about-background {
+    padding: 2rem 1rem;
   }
-  
-  .certificates-button {
-    display: block;
-    text-align: center;
-    margin-top: 2rem;
 
-    .btn {
-      background: linear-gradient(135deg, $accent-primary, $accent-hover);
-      border: none;
-      padding: 1rem 2rem;
-      font-weight: $font-weight-medium;
-    }
+  .experience-badge {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem !important;
   }
+
+  // .certificates-carousel-container {
+  //   display: none;
+  // }
+  
+  // .certificates-grid {
+  //   display: none;
+  // }
+  
+  // .certificates-button {
+  //   display: block;
+  // }
 }
 
-// JavaScript-управляемые классы
 .carousel-paused {
   .carousel-track {
     animation-play-state: paused;
@@ -580,7 +523,6 @@
   }
 }
 
-// Темная тема для SVG иконок
 [data-bs-theme="dark"] {
   .carousel-btn svg {
     color: currentColor;
